@@ -2,8 +2,16 @@
 import { useDispatch } from 'react-redux';
 import {deleteTodoAPI, editTodoAPI} from '../APIs/APIs'
 import { deleteTodo } from '../todoSlice';
-import { useState } from 'react';
-const TodoItem = (props) => {
+import React, { useState } from 'react';
+interface TodoItem {
+    todo: {
+        id: string
+        content: string
+    },
+    id: string,
+    key: string
+}
+const TodoItem = (props: TodoItem) => {
     const {todo} = props;
     const dispatch = useDispatch();
     const [editing, setEditing] = useState(false);
@@ -15,7 +23,7 @@ const TodoItem = (props) => {
         deleteTodoAPI(todo.id);
         dispatch(deleteTodo(todo.id));
     }
-    const handleInputEdit = (e) => {
+    const handleInputEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVal = e.target.value;
         setNewIput(newVal)
         

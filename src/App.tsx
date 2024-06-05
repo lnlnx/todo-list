@@ -4,22 +4,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, listTodos } from './todoSlice';
 import { addTodoAPI, getTodosAPI } from './APIs/APIs';
 import TodoList from './components/todoList';
+
+interface stateType {
+  todos: {
+    id: string,
+    content: string,
+  }
+}
 function App() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state: stateType) => state.todos);
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState('');
   
   const handleAddTodo = async() => {
     if(newTodo) {
-      const newTodoBody = {
+      const newTodoBody = [{
         content: newTodo
-      }
+      }];
       await addTodoAPI(newTodoBody);
       const newList = await getTodosAPI();
       dispatch(listTodos(newList));
     }
   };
-  const handleTodoChange =(e) => {
+  const handleTodoChange =(e: React.ChangeEvent<HTMLInputElement>) => {
     const inputVal = e.target.value;
     setNewTodo(inputVal);
   }
