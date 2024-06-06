@@ -1,13 +1,10 @@
 
 import { useDispatch } from 'react-redux';
 import {deleteTodoAPI, editTodoAPI} from '../APIs/APIs'
-import { deleteTodo } from '../todoSlice';
+import { deleteTodo, Todo } from '../todoSlice';
 import React, { useState } from 'react';
 interface TodoItem {
-    todo: {
-        id: string
-        content: string
-    },
+    todo: Todo,
     id: string,
     key: string
 }
