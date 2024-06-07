@@ -1,7 +1,7 @@
-import {getTodosAPI, addTodoAPI, deleteTodoAPI} from '../APIs/APIs'
+import {getTodosAPI, addTodoAPI, deleteTodoAPI} from '../../APIs/todoAPIs'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import {listTodos, deleteTodo, editTodo} from '../todoSlice';
+import {listTodos, deleteTodo, editTodo} from '../../todoSlice';
 import TodoItem from './todoItem';
 import './todo.css';
 const TodoList = () => {

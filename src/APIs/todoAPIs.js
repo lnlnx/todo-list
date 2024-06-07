@@ -13,6 +13,9 @@ export const getTodosAPI = () => {
 export const addTodoAPI = (newTodo) => {
   return fetch(baseURL, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(newTodo),
   }).then((res) => res.json());
 }
@@ -26,6 +29,9 @@ export const deleteTodoAPI = (id) => {
 export const editTodoAPI = (id,updatedTodo) => {
   return fetch(`${baseURL}/${id}`, {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(updatedTodo),
   }).then((res) => res.json());
 }

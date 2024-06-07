@@ -1,7 +1,7 @@
 
 import { useDispatch } from 'react-redux';
-import {deleteTodoAPI, editTodoAPI} from '../APIs/APIs'
-import { deleteTodo } from '../todoSlice';
+import {deleteTodoAPI, editTodoAPI} from '../../APIs/todoAPIs'
+import { deleteTodo } from '../../todoSlice';
 import { useState } from 'react';
 const TodoItem = (props) => {
     const {todo} = props;
