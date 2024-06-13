@@ -5,6 +5,7 @@ import { addTodo, listTodos } from './todoSlice';
 import { addTodoAPI, getTodosAPI } from './APIs/todoAPIs';
 import TodoList from './components/todo/todoList';
 import Login from './components/auth/login';
+import { Routes, Route} from './react-router-dom';
 function App() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
@@ -25,15 +26,20 @@ function App() {
     setNewTodo(inputVal);
   }
   return (
-    <div className="App">
-      {/* <div>
-        <input className="todo__input" onChange={handleTodoChange}/>
-        <button className="todo__add-btn" onClick={handleAddTodo}>add todo</button>
-      </div>
+    // <div className="App">
+    //   {/* <div>
+    //     <input className="todo__input" onChange={handleTodoChange}/>
+    //     <button className="todo__add-btn" onClick={handleAddTodo}>add todo</button>
+    //   </div>
        
-      <TodoList /> */}
-    <Login />
-    </div>
+    //   <TodoList /> */}
+    // <Login />
+    // </div>
+    <Routes>
+      <Route path="/todos" element={<TodoList />}/>
+      <Route path="/user" element={<Login />}/>
+
+    </Routes>
   );
 }
 
